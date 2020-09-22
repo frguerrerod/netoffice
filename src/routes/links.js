@@ -8,7 +8,8 @@ const pool = require('../database');
 router.get('/add', (req,res) => {
     //res.render('links/add');
     //res.json('links/add'); 
-    res.render('links/add');
+    //res.render('links/add');
+    res.render('links/add.hbs')
 });
 
 router.post('/add', (req,res) => {
