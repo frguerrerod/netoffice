@@ -4,6 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const pool = require('../database');
 const helpers = require('./helpers');
 
+//SIGNIN
 passport.use('local.signin', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
@@ -13,17 +14,18 @@ passport.use('local.signin', new LocalStrategy({
   if (rows.length > 0) {
     const user = rows[0];
     const validPassword = await helpers.matchPassword(password, user.password)
-    if (validPassword) {
-      return done(null, user, req.flash('success', 'Welcome ' + user.username));
+    if (validPassword) { //SI LA CONTRASEÑA A COINCIDIDO DE MANERA CORRECTA
+      return done(null, user, req.flash('success', 'Welcome ' + user.username)); //LE PASO UN NULL COMO UN ERROR, YA QUE LA CONTRASEÑA A SIDO CORRECTA, SE LE PASA EL USUARIO OBTENIDO PARA QUE LO SERIALIZE Y LOS DESERIALIZE
     } 
     else {
-      return done(null, false, req.flash('message', 'Incorrect Password'));
+      return done(null, false, req.flash('message', 'Incorrect Password'));//MSJ CONTRASEÑA INVALIDA 
     }
   } else {
-    return done(null, false, req.flash('message', 'The Username does not exists.'));
+    return done(null, false, req.flash('message', 'The Username does not exists.'));//MSJ USUARIO NO ENCONTRADO
   }
 }));
 
+//SIGNUP
 passport.use('local.signup', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
