@@ -13,17 +13,19 @@ router.get('/add', (req,res) => {
 
 router.post('/add', async (req,res) => {
     const { title, url, description } = req.body; //Obtener datos title,url,description
+
     const newlink ={ //Se gurdaran en un nuevo objeto
-        title,
-        url,
-        description,
+        title : title ,
+        url : url ,
+        description : description,
         user_id: req.user.id
 
     };
 
+    //onsole.log(newlink);
     //Guardar datos en la BD
 
-    await pool.query('INSERT INTO links set ?', [newLink]);//Inserción
+    const result = await pool.query('INSERT INTO links set ?', [newlink]);//Inserción
     req.flash('success', 'Link Saved Successfully');
     res.redirect('/links');
 
