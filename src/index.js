@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-const validator = require('express-validator');
+//const validator = require('express-validator');
 const passport = require('passport');
 const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
@@ -31,16 +31,17 @@ app.set('view engine', '.hbs');
 
 
 // Middlewares
+app.use(session({
+  secret: 'faztmysqlnodemysql',
+  resave: false,
+  saveUninitialized: false,
+  store: new MySQLStore(database)
+}));
+app.use(flash());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(session({
-    secret: 'faztmysqlnodemysql',
-    resave: false,
-    saveUninitialized: false,
-    store: new MySQLStore(database)
-  }));
   
 app.use(flash());
 app.use(morgan('dev'));
