@@ -2,10 +2,11 @@
   "name": "netoffice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.js", 
   "scripts": {
-    "dev": "nodemon src/"
-  },
+    "dev": "nodemon src/",
+    "start": "node src/index.js"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frguerrerod/netoffice.git"
@@ -29,7 +30,8 @@
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "timeago": "^1.6.7"
+    "timeago": "^1.6.7",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
