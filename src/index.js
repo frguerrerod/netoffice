@@ -19,7 +19,7 @@ const app = express();
 require('./lib/passport');
 
 // Settings
-//app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT);
 app.set('views', path.join("netoffice.herokuapp.com", 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
