@@ -15,4 +15,4 @@ module.exports = {  //exportara un objeto
     return res.redirect('/profile');
     }
 
-};
+}; 

@@ -7,3 +7,4 @@ module.exports ={
        database: 'db_links' /*nombre de la db*/
     }
 };
+ 

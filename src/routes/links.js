@@ -23,14 +23,14 @@ router.post('/add', async (req,res) => {
     };
 
     //onsole.log(newlink);
-    //Guardar datos en la BD
+    //Guardar datos en la BD     
 
     const result = await pool.query('INSERT INTO links set ?', [newlink]);//Inserción
     req.flash('success', 'Link Saved Successfully');
     res.redirect('/links');
 
 });
-
+ 
 
 router.get('/', isLoggedIn, async (req, res) => {
     const links = await pool.query('SELECT * FROM links WHERE user_id = ?', [req.user.id]);

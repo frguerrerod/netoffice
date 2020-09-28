@@ -32,7 +32,7 @@ router.get('/signin', isNotLoggeIn, (req, res ) => {
     if (errors.length > 0) {
       req.flash('message', errors[0].msg);
       res.redirect('/signin');
-    } */   //SE PUEDE SACAR
+    } */   //SE PUEDE SACAR 
 
     passport.authenticate('local.signin',{
       successRedirect: '/profile', // si todo se redirecciona bien me manda profile

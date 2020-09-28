@@ -23,7 +23,7 @@ const {promisify} = require('util');
      if (connection)connection.release();
      console.log('DB is Connected'); // La BD esta conectada
      return;
- });
+ }); 
 
  //Pasar modelos pool pero solo queryss
 pool.query = promisify(pool.query);

@@ -7,4 +7,4 @@ helpers.timeago = (savedTimestamp) => {
     return format(savedTimestamp);
 };
 
-module.exports = helpers;
+module.exports = helpers; 
