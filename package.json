@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/",
-    "start": "nodemon server.js"
-  },
+    "dev": "nodemon src/"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frguerrerod/netoffice.git"
