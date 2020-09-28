@@ -19,9 +19,8 @@ const app = express();
 require('./lib/passport');
 
 // Settings
-app.set('port', process.env.PORT || 4000);
-// app.set('views', path.join("netoffice.herokuapp.com", 'views'));
-app.set('views', path.join(__dirname, 'views'));
+app.set('port', process.env.PORT);
+app.set('views', path.join("netoffice.herokuapp.com", 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   layoutsDir: path.join(app.get('views'), 'layouts'),
@@ -41,13 +40,13 @@ app.use(session({
 }));
 app.use(flash());
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-
+  
 app.use(flash());
 app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -55,23 +54,22 @@ app.use(passport.session());
 
 //Variables globales 
 app.use((req, res, next) => {
-  app.locals.success = req.flash('success');
-  app.locals.message = req.flash('message');
-  app.locals.user = req.user;
-  next();
-});
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
+    app.locals.user = req.user;
+    next();
+  });
 
 //Rutas
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
-app.use('/links', require('./routes/links'));
+app.use('/links',require('./routes/links'));
 
 
 //Archivos publicos 
-// app.use(express.static(path.join("netoffice.herokuapp.com", 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join("netoffice.herokuapp.com",'public')));
 
 //Satart servidor 
 app.listen(app.get('port'), () => {
-  console.log('Server on port', app.get('port'));
+    console.log('Server on port', app.get('port'));
 });
