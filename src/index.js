@@ -67,7 +67,7 @@ app.use('/links',require('./routes/links'));
 
 
 //Archivos publicos 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join("https://netoffice.herokuapp.com/",'public')));
 
 //Satart servidor 
 app.listen(app.get('port'), () => {
