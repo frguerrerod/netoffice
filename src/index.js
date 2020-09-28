@@ -20,7 +20,7 @@ require('./lib/passport');
 
 // Settings
 app.set('port', process.env.PORT || 4000);
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join("https://netoffice.herokuapp.com/", 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   layoutsDir: path.join(app.get('views'), 'layouts'),
