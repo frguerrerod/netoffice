@@ -19,12 +19,12 @@ const app = express();
 require('./lib/passport');
 
 // Settings
-app.set('port', process.env.PORT || 4000);
-app.set('views', path.join("https://netoffice.herokuapp.com/", 'views'));
+//app.set('port', process.env.PORT || 4000);
+app.set('views', path.join("netoffice.herokuapp.com", 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   layoutsDir: path.join(app.get('views'), 'layouts'),
-  partialsDir: path.join(app.get('views'), 'partials'), 
+  partialsDir: path.join(app.get('views'), 'partials'),
   extname: '.hbs',
   helpers: require('./lib/handlebars')
 }))
@@ -67,7 +67,7 @@ app.use('/links',require('./routes/links'));
 
 
 //Archivos publicos 
-app.use(express.static(path.join("https://netoffice.herokuapp.com/",'public')));
+app.use(express.static(path.join("netoffice.herokuapp.com",'public')));
 
 //Satart servidor 
 app.listen(app.get('port'), () => {
