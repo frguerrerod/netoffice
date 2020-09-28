@@ -20,7 +20,7 @@ require('./lib/passport');
 
 // Settings
 app.set('port', process.env.PORT );
-app.set('views', path.join("netoffice.herokuapp.com", 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   layoutsDir: path.join(app.get('views'), 'layouts'),
@@ -67,7 +67,7 @@ app.use('/links',require('./routes/links'));
 
 
 //Archivos publicos 
-app.use(express.static(path.join("netoffice.herokuapp.com",'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 //Satart servidor 
 app.listen(app.get('port'), () => {
